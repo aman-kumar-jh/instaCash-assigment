@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+    {% block title %}
+        Home
+    {% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display- ">Task Managment</h1>
+        <p class="lead">The Task Managment website as an assigment for <kbd>InstaCash</kbd></p>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'task_list' %}"
+        role="button">View All Task</a>
+        </p>
+        <a class="btn btn-primary btn-lg" href="{% url 'today_task_list' %}"
+        role="button">View Today's Task</a>
+        </p>
+    </div>
+{% endblock content %}

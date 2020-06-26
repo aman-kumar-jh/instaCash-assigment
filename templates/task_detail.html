@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="task-entry">
+    <h1><b>{{ object.title }}</b></h1>
+    <h6>
+        {% if object.completed_task == True %}
+            <span class="badge badge-success">Completed</span>
+        {% else %}
+            <span class="badge badge-warning">Pending</span>
+        {% endif %}
+        <span class="badge badge-primary">{{object.date}}</span>
+    </h6>
+    <h3>{{object.body}}</h3>
+    <p>
+        <a class="btn btn-outline-success btn-sm" href="{% url 'task_edit' task.pk %}">
+            <span class="iconify" data-icon="eva:edit-2-fill" data-inline="false"></span>
+        </a>
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'task_delete' task.pk %}">
+            <span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false"></span>
+        </a>
+        
+    </p>
+    <div>
+        {% if object.completed_task == False %}
+            <a class="btn btn-success" href="{% url 'task_complete' task.pk %}">Mark Complete</a>
+        {% endif %}
+    </div>
+    </p>
+    <b>Back to </b><a href="{% url 'task_list' %}">All Tasks</a>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Tasks
+{% endblock title %}
+
+{% block content %}
+
+
+{% for task in object_list %}
+<div class="card">
+    <div class="card-header">
+        <a class="" href="{% url 'task_detail' task.pk %}">
+            {% if task.completed_task == True %}
+                <h4 class="card-title"><del>{{ task.title }}</del></h4>
+            {% else %}
+                <h4 class="card-title">{{ task.title }}</h4>
+            {% endif %}
+        </a>
+        {% if task.completed_task == True %}
+            <span class="badge badge-success">Completed</span>
+        {% else %}
+            <span class="badge badge-warning">Pending</span>
+        {% endif %}
+        <span class="badge badge-primary">{{ task.date }}</span>
+    </div>
+    <div class="card-footer text-center text-muted">
+       
+        <a class="btn btn-outline-success btn-sm" href="{% url 'task_edit' task.pk %}">
+            <span class="iconify" data-icon="eva:edit-2-fill" data-inline="false"></span>
+        </a>
+        <a class="btn btn-outline-danger btn-sm" href="{% url 'task_delete' task.pk %}">
+            <span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false"></span>
+        </a>
+        
+    </div>
+</div>
+<br />
+{% endfor %}
+{% endblock content %}
