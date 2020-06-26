@@ -1,4 +1,4 @@
-# instaPay-assigment
+# instaCash-assigment
 
 ### Run the following comand in the terminal inside the project directory step wise to run the project
 1. python3 -m venv myvenv
