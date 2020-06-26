@@ -1,6 +1,6 @@
 # instaPay-assigment
 
-### steps to run following comand in the terminal of project directory
+### Run the following comand in the terminal inside the project directory step wise to run the project
 1. python3 -m venv myvenv
 1. source myvenv/bin/activate
 1. pip install -r requirements.txt
